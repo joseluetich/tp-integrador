@@ -3,6 +3,8 @@ package isi.died.tp.estructuras;
 import java.util.ArrayList;
 import java.util.List;
 
+import isi.died.tp.dominio.Insumo;
+
 public class ArbolBinarioBusqueda<E extends Comparable<E>> extends Arbol<E> {
 
 	protected Arbol<E> izquierdo;
@@ -129,5 +131,21 @@ public class ArbolBinarioBusqueda<E extends Comparable<E>> extends Arbol<E> {
 		}
 		return true;
 	}
-
+	
+	public ArrayList<String> rango(int i1, int i2) {
+		ArrayList<String> insumos = new ArrayList<String>();
+		Insumo insumo1 = new Insumo(i1);
+		Insumo insumo2 = new Insumo(i2);
+		return rangoAux(insumo1,insumo2,insumos);
+	}
+	
+	public ArrayList<String> rangoAux(Insumo insumo1, Insumo insumo2, ArrayList<String> insumos) {
+			for(E e: this.inOrden()) {
+				if((((Insumo)e).getStock())>=insumo1.getStock() && (((Insumo)e).getStock())<=insumo2.getStock()) 
+					insumos.add(((Insumo)e).toString());
+			}
+			return insumos;
+	}
+	
+				
 }
