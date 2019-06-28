@@ -5,7 +5,7 @@ public class Liquido extends Insumo {
 	private float densidad;
 	
 	public Liquido() {
-		super.setUnidadDeMedida("Litro");
+		super.setUnidadDeMedida(Unidad.LITRO);
 	}
 	
 	public float getDensidad() {
